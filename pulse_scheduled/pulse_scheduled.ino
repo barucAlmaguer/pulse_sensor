@@ -10,13 +10,14 @@
 void t1Callback();
 
 //Tasks
-Task t1(250, TASK_FOREVER, &t1Callback);
+Task t1(25, TASK_FOREVER, &t1Callback);
 
 Scheduler runner;
 
 void t1Callback() {
     //t2.setInterval(500);
-    Serial.println("holi");
+    //Serial.println("holi");
+    Serial.println(analogRead(A0));
 }
 
 void setup () {
@@ -28,9 +29,7 @@ void setup () {
   
   runner.addTask(t1);
   Serial.println("added t1");
-  
-  delay(5000);
-  
+    
   t1.enable();
   Serial.println("Enabled t1");
 }
